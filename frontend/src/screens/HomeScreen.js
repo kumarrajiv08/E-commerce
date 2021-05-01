@@ -8,7 +8,7 @@ const HomeScreen = () => {
         <h1>LATEST PRODUCTS</h1>
           <Row>
             {products.map(product =>(
-              <Col sm={12} md={6} lg={4} xl={3}>   {/*In small screen, it will take full width, in medium it will take half*/}
+              <Col key ={product._id} sm={12} md={6} lg={4} xl={3}>   {/*In small screen, it will take full width, in medium it will take half*/}
                 <Product product={product}/>
 
               </Col>
