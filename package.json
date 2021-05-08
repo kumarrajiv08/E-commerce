@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumarrajiv08/E-commerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumarrajiv08/E-commerce/issues"
+  },
+  "homepage": "https://github.com/kumarrajiv08/E-commerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
