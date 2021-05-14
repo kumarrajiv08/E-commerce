@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/kumarrajiv08/E-commerce#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "concurrently": "^6.1.0",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8"
   }
 }
