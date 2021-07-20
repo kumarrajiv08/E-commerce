@@ -9,47 +9,48 @@ import Order from './models/orderModel.js'
 import connectDB from './config/db.js'
 
 dotenv.config()
-connectDB();
 
-const importData = async() =>{
-  try{
-  await  User.deleteMany()
-  await  Product.deleteMany()
-  await  Order.deleteMany()
+connectDB()
 
-  const createdUsers = await User.insertMany(users)
+const importData = async () => {
+  try {
+    await Order.deleteMany()
+    await Product.deleteMany()
+    await User.deleteMany()
 
-  const adminUser = createdUsers[0]._id
+    const createdUsers = await User.insertMany(users)
 
-const sampleProducts = products.map(product => {
-  return {...product, user:adminUser}
-})
+    const adminUser = createdUsers[0]._id
 
+    const sampleProducts = products.map((product) => {
+      return { ...product, user: adminUser }
+    })
 
-await Product.insertMany(sampleProducts)
-console.log('Data Imported'.green.inverse);
-process.exit()
-} catch(error) {
-console.log(`${error}`.red.inverse);
-process.exit(1)
+    await Product.insertMany(sampleProducts)
+
+    console.log('Data Imported!'.green.inverse)
+    process.exit()
+  } catch (error) {
+    console.error(`${error}`.red.inverse)
+    process.exit(1)
   }
 }
 
-const destroyData = async() =>{
-  try{
-  await  User.deleteMany()
-  await  Product.deleteMany()
-  await  Order.deleteMany()
+const destroyData = async () => {
+  try {
+    await Order.deleteMany()
+    await Product.deleteMany()
+    await User.deleteMany()
 
-console.log('Data Destroyed'.red.inverse);
-process.exit()
-} catch(error) {
-console.log(`${error}`.red.inverse);
-process.exit(1)
+    console.log('Data Destroyed!'.red.inverse)
+    process.exit()
+  } catch (error) {
+    console.error(`${error}`.red.inverse)
+    process.exit(1)
   }
 }
 
-if(process.argv[2] === '-d'){
+if (process.argv[2] === '-d') {
   destroyData()
 } else {
   importData()
